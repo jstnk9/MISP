@@ -2,6 +2,15 @@
 
 This is the galaxy that I've created to map sigma rules into galaxies in MISP. Once the galaxy is uploaded, it looks like this
 
+# Script Usage
+
+```
+python sigma-to-galaxy.py -p "C:\github\sigma\rules" -r 
+```
+
+If there are sigma rules with the same title, you can see those in the terminal printed.
+
+# Images
 
 ![image](https://user-images.githubusercontent.com/7794663/202035331-e7c83586-3ab1-43b2-8ab4-c2a78cfd527d.png)
 
