@@ -4,11 +4,25 @@ This is the galaxy that I've created to map sigma rules into galaxies in MISP. O
 
 # Script Usage
 
+Python3 is needed. First install the requirements.txt, I recommend the use of virtualenv for this purpose.
+
+```
+pip install -r requirements.txt
+```
+
+After that, you can execute the script with the folder of your sigma rules as parameter.
+
+Example for Windows
 ```
 python sigma-to-galaxy.py -p "C:\github\sigma\rules" -r 
 ```
 
-If there are sigma rules with the same title, you can see those in the terminal printed.
+Example for Linux
+```
+python sigma-to-galaxy.py -p "/opt/sigma/rules/" -r 
+```
+
+If there are sigma rules with the same title, you can see those in the terminal printed. In that case, I recommend to modify the title, since it will generate some problems in your MISP.
 
 # Images
 
