@@ -1,6 +1,8 @@
 # Sigma Galaxy
 
-This is the galaxy that I've created to map sigma rules into galaxies in MISP. Once the galaxy is uploaded, it looks like this
+This is the galaxy that I've created to map sigma rules into galaxies in MISP. Once the galaxy is uploaded, it looks like this.
+
+Blog explanation: https://jstnk9.github.io/jstnk9/blog/Sigma-Rules-as-MISP-galaxies
 
 # Script Usage
 
