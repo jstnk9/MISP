@@ -42,3 +42,6 @@ Or you can add this galaxy at the event level
 
 ![image](https://user-images.githubusercontent.com/7794663/202036117-9eadc450-9477-4864-839d-08690e8ae9e4.png)
 
+Version 2.0 includes ATT&CK MITRE galaxy relationship
+
+![galaxies_related](https://user-images.githubusercontent.com/7794663/211669177-aeadb1b4-8bd8-43eb-ba42-011ea3b2cb9b.JPG)
