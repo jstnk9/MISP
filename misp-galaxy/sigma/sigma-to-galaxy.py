@@ -12,7 +12,7 @@
 
 """
 
-import os, json, yaml, argparse, uuid, configparser
+import os, json, yaml, argparse, uuid, configparser, time
 
 unique_uuid = '9cf7cd2e-d5f1-48c4-9909-7896ba1c96b2'
 
@@ -26,6 +26,7 @@ def main(args):
     create_cluster_json(galaxyCluster)
     check_duplicates(galaxyCluster)
 
+
 def createRelations(galaxyCluster):
     """
     :param galaxyCluster: Content of the cluster with all the values related to the Sigma Rules
@@ -35,17 +36,41 @@ def createRelations(galaxyCluster):
     for obj in galaxyCluster["values"]:
         for attack in obj["meta"]["tags"]:
             if attack.startswith("attack.t"):
-                with open(config["MISP"]["cluster_path"]+config["MISP"]["mitre_attack_cluster"], "r") as mitreCluster:
+                with open(
+                    config["MISP"]["cluster_path"]
+                    + config["MISP"]["mitre_attack_cluster"],
+                    "r",
+                ) as mitreCluster:
                     data = json.load(mitreCluster)
                     for technique in data["values"]:
-                        if technique["meta"]["external_id"] == attack.split(".", 1)[1].upper():
+                        if (
+                            technique["meta"]["external_id"]
+                            == attack.split(".", 1)[1].upper()
+                        ):
                             if obj.get("related"):
-                                obj["related"].append({"dest-uuid": "%s"%(technique["uuid"]), "tags": ["estimative-language:likelihood-probability=\"almost-certain\""], "type": "related-to"})
+                                obj["related"].append(
+                                    {
+                                        "dest-uuid": "%s" % (technique["uuid"]),
+                                        "tags": [
+                                            "estimative-language:likelihood-probability=\"almost-certain\""
+                                        ],
+                                        "type": "related-to",
+                                    }
+                                )
                             else:
                                 obj["related"] = []
-                                obj["related"].append({"dest-uuid": "%s"%(technique["uuid"]), "tags": ["estimative-language:likelihood-probability=\"almost-certain\""], "type": "related-to"})
-                
+                                obj["related"].append(
+                                    {
+                                        "dest-uuid": "%s" % (technique["uuid"]),
+                                        "tags": [
+                                            "estimative-language:likelihood-probability=\"almost-certain\""
+                                        ],
+                                        "type": "related-to",
+                                    }
+                                )
+
     return galaxyCluster
+
 
 def check_duplicates(galaxy):
     """
@@ -102,6 +127,7 @@ def create_cluster(uuidGalaxy=unique_uuid):
 
     :return cluster: Dict with the basic information needed for the JSON file.
     """
+    version = time.strftime("%Y%m%d")
     cluster = {
         "authors": ["@Joseliyo_Jstnk"],
         "category": "rules",
@@ -111,7 +137,7 @@ def create_cluster(uuidGalaxy=unique_uuid):
         "type": "sigma-rules",
         "uuid": uuidGalaxy,
         "values": [],
-        "version": 1,
+        "version": version
     }
 
     return cluster
