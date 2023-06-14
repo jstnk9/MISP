@@ -1,3 +1,4 @@
+## Author: @Joseliyo_Jstnk
 from pymisp import PyMISP, MISPObject, MISPEvent, MISPTag
 from pymisp.mispevent import MISPGalaxy
 from keys import vt_apikey, galaxies

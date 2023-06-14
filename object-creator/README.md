@@ -34,9 +34,11 @@ Object creator is a python script that helps you to add IOCs (in object format) 
   * All the MITRE Techniques extracted from the files stored in the MISP event
   * All the Sigma rules extracted from the files stored in the MISP event
 
-Blog explanation: 
+Blog explanation: https://jstnk9.github.io/jstnk9/blog/MISP-object-creator-with-Virustotal-and-Sigma
 
 # How it works
+
+![process](https://jstnk9.github.io/jstnk9/img/blog-object-creator/graph.png)
 
 This repository contains 3 components. The whole repo is around MISP and VirusTotal. Both VirusTotal and MISP APIs are required, as well as the MISP URL where you want to store the information. In order to work with the script, you need to modify the `keys.py` file with your information.
 
