@@ -113,7 +113,7 @@ def create_objectDomain_noVT(event, misp, domainsNotVT):
     for domain in domainsNotVT:
         mispobj = MISPObject(name="domain-ip")
         mispobj.add_attribute("domain", value=domain)
-    misp.add_object(event, mispobj)
+        misp.add_object(event, mispobj)
 
     return True
 
@@ -224,7 +224,7 @@ def create_objecturl_noVT(event, misp, urlsNotVT):
         if urllib.parse.urlparse(url).query:
             mispobj.add_attribute("query_string", value=urllib.parse.urlparse(url).query)
 
-    misp.add_object(event, mispobj)
+        misp.add_object(event, mispobj)
 
     return True
 
@@ -284,7 +284,7 @@ def create_objectIP_noVT(event, misp, ipsNotVT):
     for ip in ipsNotVT:
         mispobj = MISPObject(name="ip-port")
         mispobj.add_attribute("ip", value=ip)
-    misp.add_object(event, mispobj)
+        misp.add_object(event, mispobj)
 
     return True
 
